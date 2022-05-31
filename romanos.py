@@ -33,12 +33,43 @@ def convertir_en_romano(numero):
         "D": 500,
         "M": 1000
     }
-
+    
+    n_string = str(numero)
+    n_list = list(n_string)
+    print(n_list)
+    int_list = []
+    for num in n_list:
+        n_int = int(num)
+        int_list.append(n_int)
+    
+    resultado_str = ""
+    if len(n_list) == 1:
+        print("u")
+        #[0] = unidades
+    if len(n_list) == 2:
+        print("d")
+        #[0] = decenas
+        #[1] = unidades
+    if len(n_list) == 3:
+        print("c")
+        #[0] = centenas
+        #[1] = decenas
+        #[2] = unidades
+    if len(n_list) == 4:
+        print("m")
+        
+        #[0] = millares
+        #[1] = centenas
+        #[2] = decenas
+        #[3] = unidades
+        
+        resultado_str += int_list[0]*"M"
+        resultado_str += int_list[1]*"C"
+        resultado_str += int_list[2]*"D"
+    print(resultado_str)
     # Descomponer "numero" en unidades, decenas, centenas y unidades de millar
     # opción 1: división entera + módulo en cascada
     # opción 2: convertir en cadena y en función de la longitud y la posición obtener u,d,c y um
 
-print(convertir_en_romano("3a3"))
-print(convertir_en_romano(-3))
-print(convertir_en_romano(3333))
+print(convertir_en_romano(1123))
 # convertir_en_romano("a")
